@@ -1,0 +1,77 @@
+//@import (inline) "jqueryui/jquery-ui-1.10.3.custom.css";
+
+// custom bootstrap which includes variables
+// and mixins
+@import "bootstrap/custom-bootstrap.less";
+
+
+html, body {
+	height: 100%;
+	font-family:verdana,arial,sans-serif;
+	color:#fff;
+	font-size: @font-size-base;
+}
+
+.modal {
+	color: @blue-dark;
+}
+
+.container {
+	height: 100%;
+	background-color: #666666;
+
+	.row {
+		padding:5px;
+
+		.box {
+
+			background: -webkit-gradient(linear, left top, left bottom, from(lighten(#000, 50%)), to(lighten(#000, 60%)));
+
+			border: 2px lighten(#000, 50%) solid;
+			.border-top-radius(10px);
+			.border-bottom-radius(10px);
+			.border-left-radius(10px);
+			.border-right-radius(10px);
+			
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+
+			display:inline-block;
+
+			padding: 5px;
+			margin: 2px;
+
+
+			a {
+				color: inherit;
+
+				&:hover {
+					color: @blue-light;
+				}
+			}
+
+			img {
+				width: auto;
+				height: auto;
+
+				.border-top-radius(10px);
+				.border-bottom-radius(10px);
+				.border-left-radius(10px);
+				.border-right-radius(10px);
+				border: 3px transparent solid;
+
+				&:hover {
+					border-color: @blue;	
+				}
+
+				height: 120px;
+			}
+
+			@media(max-width: 440px) {
+				img {
+					height: 75px;
+				}
+			}
+		}
+	}
+}

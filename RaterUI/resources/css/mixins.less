@@ -1,0 +1,21 @@
+//
+// Mixins
+// --------------------------------------------------
+@import "bootstrap/current/mixins.less";
+
+// Transformations
+
+.flip(@x, @y) {
+    -webkit-transform: scale(@x, @y);
+        -moz-transform: scale(@x, @y);
+        -ms-transform: scale(@x, @y);
+            -o-transform: scale(@x, @y);
+               transform: scale(@x, @y);
+}
+
+.spin(@spin) {
+    -webkit-animation: @spin;
+        -moz-animation: @spin;
+            -o-animation: @spin;
+               animation: @spin;
+}

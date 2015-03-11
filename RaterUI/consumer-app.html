@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rater Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="resources/css/rater.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/rateit/rateit.css" />
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+
+    <style type="text/css">
+        div.bigstars div.rateit-range
+        {
+            background: url("vendor/rateit/star-white32.png");
+            height: 32px;
+        }
+
+        div.bigstars div.rateit-hover
+        {
+            background: url("vendor/rateit/star-gold32.png");
+            height: 32px;
+        }
+
+        div.bigstars div.rateit-selected
+        {
+            background: url("vendor/rateit/star-red32.png");
+            height: 32px;
+        }
+
+        div.bigstars div.rateit-reset
+        {
+            background: url("vendor/rateit/star-black32.png");
+            width: 32px;
+            height: 32px;
+        }
+
+        div.bigstars div.rateit-reset:hover
+        {
+            background: url("vendor/rateit/star-white32.png");
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row center-block">
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="1">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="2">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="3">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="4">
+                    <img class="img-responsive center-block" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="5">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="6">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="7">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="ratingModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="img-responsive img-thumbnail" src="resources/img/male.jpg" />
+                    <h2 class="modal-header-text" />
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <label class="col-sm-4">Patron Date</label>
+                            <input id="txtDate" class="form-control input-small col-sm-8" type="date" style="width:auto" />
+                        </div>
+                        <br />
+                        <div class="row">
+                            <label class="col-sm-4">Attentiveness: <i id="iAttent" class="rating-value">(2.5)</i></label>
+                            <div class="col-sm-8">
+                                <input id="attentRating" type="range" min="0" max="5" value="2.5" step=".5" />
+                                <div id="txtAttent" class="rateit bigstars" data-label="#iAttent" data-rateit-backingfld="#attentRating" data-rateit-starwidth="32" data-rateit-starheight="32"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-sm-4">Polite: <i id="iPolite" class="rating-value">(2.5)</i></label>
+                            <div class="col-sm-8">
+                                <input id="politeRating" type="range" min="0" max="5" value="2.5" step=".5" />
+                                <div id="txtPolite" class="rateit bigstars" data-label="#iPolite" data-rateit-backingfld="#politeRating" data-rateit-starwidth="32" data-rateit-starheight="32"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-sm-4">Table Manner: <i id="iTable" class="rating-value">(2.5)</i></label>
+                            <div class="col-sm-8">
+                                <input id="tableRating" type="range" min="0" max="5" value="2.5" step=".5" />
+                                <div id="txtTable" class="rateit bigstars" data-label="#iTable" data-rateit-backingfld="#tableRating" data-rateit-starwidth="32" data-rateit-starheight="32"></div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <textarea id="txtComments" class="form-control col-xs-12" rows="6" placeholder="Comments..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <br />
+                        <button type="button" class="btn btn-primary btn-lg">Submit</button>
+                        <button type="button" class="btn btn-default btn-lg">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="vendor/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/3.0.2/bootstrap.min.js"></script>
+<script type="text/javascript" src="vendor/jqueryui/1.10.3/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="vendor/rateit/jquery.rateit.js"></script>
+<script type="text/javascript">
+
+    Date.prototype.toDateInputValue = (function () {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0, 10);
+    });
+
+    $("#ratingModal").on("show.bs.modal", function (event) {
+        var ctrl = $(event.relatedTarget);
+        var person = ctrl.data("person");
+
+        var modal = $(this);
+
+        console.log(person);
+        modal.find(".modal-header-text").text("James Monroe - ID: " + person);
+        $("#txtDate").val(new Date().toDateInputValue());
+
+    });
+
+    $(document).ready(function () {
+        $(".rateit").bind('rated', function () {
+            var lbl = $(this).data("label");
+            $(lbl).text($(this).rateit('value'));
+        });
+    });
+
+</script>

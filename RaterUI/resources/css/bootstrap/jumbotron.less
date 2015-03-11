@@ -1,0 +1,25 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+.jumbotron {
+    margin-bottom: 0;
+    border-bottom: 1px solid @jumbotron-border-color;
+
+    h1 {
+        // set margin-top to be the same as margin-bottom
+        margin-top: (@line-height-computed / 2);
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        h1 {
+            font-size: (@jumbotron-font-size * 2.5);
+        }
+    }
+
+    .breadcrumb {
+        font-size: @font-size-base;
+        padding: 0;
+        margin-bottom: 0;
+    }
+}

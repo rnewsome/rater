@@ -1,0 +1,141 @@
+// Variables and mixins
+@import "../variables.less";
+@import "../mixins.less";
+
+// Import the converted icomoon css
+@import (inline) "style.css";
+
+/*TODO: update to go off of variables file */
+.sc-icon,
+[class*="sc-icon-"] {
+    font-size: 1em;
+
+    &.disabled,
+    &[disabled] {
+        cursor: default;
+        .opacity(.65);
+        .box-shadow("none");
+    }
+
+    // Sizing
+    &.icon-xs { font-size: .6em; }
+    &.icon-sm { font-size: .8em; }
+    &.icon-default { font-size: 1em; }
+    &.icon-lg { font-size: 1.2em; }
+    &.icon-2x { font-size: 2em; }
+    &.icon-3x { font-size: 3em; }
+    &.icon-4x { font-size: 4em; }
+    &.icon-5x { font-size: 5em; }
+
+    // Emphasis classes
+    &.icon-muted { color: @text-muted;}
+    &.icon-primary { color: @brand-primary; }
+    &.icon-success { color: @state-success-text; }
+    &.icon-info { color: @state-info-text; }
+    &.icon-warning { color: @state-warning-text; }
+    &.icon-danger { color: @state-danger-text; }
+    &.icon-inverse { color: @navbar-inverse-color; }
+
+    /* Buttons */
+
+    /* Fixed Width */
+    &.icon-fw {
+        display: inline-block;
+        width: 1.5em;
+        text-align: center;
+    }
+
+    /* List */
+    &.icon-li {
+        display: inline-block;
+        position: absolute;
+        left: -2.142857142857143em;
+        width: 2.142857142857143em;
+        top: 0.14285714285714285em;
+        text-align: center;
+    }
+
+    /* Border & Pulled */
+    &.icon-border {
+        padding: .2em .25em .15em;
+        border: solid 0.08em #EEE;
+        border-radius: .1em;
+    }
+    &.pull-left {
+        float: left;
+        margin-right: .3em;
+    }
+    &.pull-right {
+        float: right;
+        margin-left: .3em;
+    }
+
+    /* Rotate & Flip */
+    &[class*="icon-rotate-"],
+    &[class*="icon-flip-"] {
+        display: inline-block;
+    }
+
+    &.icon-rotate-90 {
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+        .rotate(90deg);
+    }
+    
+    &.icon-rotate-180 {
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+        .rotate(180deg);
+    }
+    
+    &.icon-rotate-270 {
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        .rotate(270deg);
+    }
+
+    &.icon-flip-horizontal {
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+        .flip(-1, 1);
+    }
+
+    &.icon-flip-vertical {
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+        .flip(1, -1);
+    }
+    
+    /* Spinner */
+    &.icon-spin {
+        text-align: center;
+        .spin(spin 2s infinite linear);
+    }
+
+    /* Stacked */
+    &.icon-stack-1x,
+    &.icon-stack-2x {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    &.icon-stack-1x { line-height: inherit; }
+    &.sicon-tack-2x { font-size: 2em; }
+}
+
+/* Icon classes not tied directly onto the icons themselves */
+.icon-ul {
+    padding-left: 0;
+    margin-left: 2em;
+    list-style-type: none;
+    
+    & > li {
+        position: relative;
+        height: 20px;
+    }
+}
+
+.icon-stacked {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em !important;
+    vertical-align: middle;
+}

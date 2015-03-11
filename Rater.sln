@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaterApi", "RaterApi\RaterApi.csproj", "{0CBE3FF5-18BA-4CFE-9A28-A066517213DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaterUI", "RaterUI\RaterUI.csproj", "{2F6DEB39-A15D-4DD9-8D14-D4BB71A1A5C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CBE3FF5-18BA-4CFE-9A28-A066517213DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBE3FF5-18BA-4CFE-9A28-A066517213DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBE3FF5-18BA-4CFE-9A28-A066517213DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBE3FF5-18BA-4CFE-9A28-A066517213DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F6DEB39-A15D-4DD9-8D14-D4BB71A1A5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F6DEB39-A15D-4DD9-8D14-D4BB71A1A5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F6DEB39-A15D-4DD9-8D14-D4BB71A1A5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F6DEB39-A15D-4DD9-8D14-D4BB71A1A5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

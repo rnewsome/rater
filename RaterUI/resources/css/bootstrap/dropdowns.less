@@ -1,0 +1,50 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+
+// The dropdown menu (ul)
+.dropdown-menu {
+    > li > a {
+        // gutter to the left side of the menu
+        padding: .4em 1em .4em 2.2em;
+
+        .primary,
+        .secondary { 
+            position: absolute;
+            color: gray;
+            left: .6em;
+            line-height: 18px;
+            font-size: 1em;
+        }
+
+        .secondary {
+            left: auto;
+            right: 1.8em;
+            font-size: 1em;
+        }
+
+        &.active {
+            outline: 0;
+            background-image: none;
+            text-decoration: none;
+            color: @dropdown-link-hover-color;
+            background-color: @dropdown-link-hover-bg;
+            border-bottom: solid 1px rgba(0,0,0,0.125);
+            .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+        }
+    }
+}
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+// Nuke hover/focus effects
+.dropdown-menu > .disabled > a {
+    &:hover,
+    &:focus {
+        // bootstrap has this as "not-allowed" which shows the ban
+        // style icon
+        cursor: default;
+    }
+}

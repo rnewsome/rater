@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SRS EHR Prototype</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="resources/css/srs.css" />
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="box">
+
+		<div id="mainContainer" class="container-row row-offcanvas row-offcanvas-left">
+
+			<!-- sidebar -->
+			<div id="sidebar" class="column sidebar-offcanvas col-xs-2">
+			  
+				<!-- tiny only nav-->
+				<ul class="nav">
+					<li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="sc-icon-arrow-right"></i></a></li>
+				</ul>
+				<ul class="nav visible-xs" id="xs-menu">
+					<li><a href="#featured" class="text-center"><i class="sc-icon-mail-opened"></i></a></li>
+					<li><a href="#stories" class="text-center"><i class="sc-icon-calendar"></i></a></li>
+					<li><a href="#" class="text-center"><i class="sc-icon-star"></i></a></li>
+					<li><a href="#" class="text-center"><i class="sc-icon-list-circle"></i></a></li>
+				</ul>
+
+				<!-- Desktop Side Nav -->
+				<div class="row hidden-xs pull-left">
+					<!-- Main Nav - Desktop View -->
+					<div id="icon-nav" class="nav-area">
+						<span class="pull-left">
+							<a href="#"><i class="sc-icon-mail-opened"></i></a>
+							<a href="#"><i class="sc-icon-calendar"></i></a>
+							<a href="#"><i class="sc-icon-star"></i></a>
+							<a href="#"><i class="sc-icon-list-circle"></i></a>
+						</span>
+						<span class="pull-right">
+							<a href="#"><i class="sc-icon-pin-down"></i></a>
+							<a href="#"><i class="sc-icon-close-thick"></i></a>
+						</span>
+					</div>
+
+					<!-- Sidebar Footer -->
+					<div id="sidebar-footer">
+					   <ul id="lg-menu">
+						<li class="active"><a href="#mail"><i class="sc-icon-mail-opened"></i> Mail</a></li>
+						<li><a href="#stories"><i class="sc-icon-calendar"></i> Calendar</a></li>
+						<li><a href="#"><i class="sc-icon-star"></i> Favorites</a></li>
+						<li><a href="#"><i class="sc-icon-list-circle"></i> Recent</a></li>
+					   </ul>
+					</div>
+				</div>
+
+				<!-- Side Nav Resize Splitter -->
+				<div class="hidden-xs pull-right" id="vertical-split-bar"
+                    data-resizer='{"type":"vertical", "width":"6", "left":"#sidebar", "right":"#main", "maxWidth":"1000", "minWidth":"200"}'>
+                </div>			  
+			</div>
+			<!-- /sidebar -->
+		  
+			<!-- main right col -->
+			<div id="main" class="column col-xs-10">
+				
+				<!-- top nav -->
+				<div class="sc-header navbar-static-top" role="banner">  
+					<div class="navbar-header">
+					  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					  <a href="/" class="navbar-brand logo">SRS</a>
+					</div>
+					<nav class="collapse navbar-collapse" role="navigation">
+						<ul class="nav navbar-nav">
+							<li class="dropdown active">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">File <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Link</a></li>
+								</ul>
+							</li>
+							
+						</ul>
+					</nav>
+				</div>
+				<!-- /top nav -->
+			  
+				<div class="padding">
+					<div class="full col-sm-9">
+					  
+						<!-- content -->                      
+						<div class="container-row">
+						  
+						 <!-- main col left --> 
+						 <div class="col-sm-5">
+							
+						   
+						 </div>
+						  
+						  <!-- main col right -->
+						  <div class="col-sm-7">
+							   
+						  </div>
+					   </div><!--/row-->
+					  
+					</div><!-- /col-9 -->
+				</div><!-- /padding -->
+			</div>
+			<!-- /main -->
+		
+		</div>
+
+		<footer id="footer" class="footer navbar-fixed-bottom hidden-xs">
+			<!-- Side Nav Resize Splitter -->
+			<div id="horizontal-split-bar"
+                data-resizer='{"type":"horizontal", "height":"6", "top":"#mainContainer", "bottom":"#footer", "maxHeight":"1000", "minHeight":"200"}'>
+            </div>	
+			<div class="container-row">
+                <div class="row">
+				    <div class="col-sm-11">
+					    <a class="brand" href="#">Tab Navigation, etc...</a>
+				    </div>
+				    <div class="col-sm-1">
+                        <span class="pull-right">
+				            <a href="#"><i class="sc-icon-pin-down"></i></a>
+				            <a href="#"><i class="sc-icon-close-thick"></i></a>
+                        </span>
+				    </div>    
+                </div>
+			</div>
+		</footer>
+
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="vendor/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/3.0.2/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    $(window).resize(function () {
+
+        console.log('XS: ' + $(window).width());
+        if ($(window).width() < 768) {
+            $("#sidebar").removeClass("col-xs-2").addClass("col-xs-1").css('width', 'auto');
+            $("#main").removeClass("col-xs-10").addClass("col-xs-11").css('width', 'auto');
+            //$('.col-xs-12').css('width', '100%');
+            //$("#resizable").resizable({ disabled: true });
+        }
+        else {
+            $("#sidebar").removeClass("col-xs-1").addClass("col-xs-2").css('width', 'auto');
+            $("#main").removeClass("col-xs-11").addClass("col-xs-10").css('width', 'auto');
+            //$("#resizable").resizable({ disabled: false });
+            //if ($('.col-xs-12').width() == $('.container').width()) $('.col-xs-12').css('width', '50%');
+            //else {
+            //    $("#resizable").css('width', ($('#resizable').width() / ($('#resizable').width() + $('#mirror').width())) * $('.container').width());
+            //    $('#mirror').css('width', $('.container').width() - $("#resizable").width() - 15);
+            //}
+        }
+    });
+
+    $('#vertical-split-bar').mousedown(function (e) {
+        e.preventDefault();
+
+        $element = $(this);
+        $attrs = $element.data("resizer");
+
+        $(document).mousemove(function (e) {
+            onMouseMove(e, $element, $attrs);
+        })
+
+        $(document).mouseup(function (e) {
+            $(document).unbind('mousemove');
+        });
+
+    });
+    $('#horizontal-split-bar').mousedown(function (e) {
+        e.preventDefault();
+
+        $element = $(this);
+        $attrs = $element.data("resizer");
+
+        $(document).mousemove(function (e) {
+            onMouseMove(e, $element, $attrs);
+        })
+
+        $(document).mouseup(function (e) {
+            $(document).unbind('mousemove');
+        });
+
+    });
+
+    function onMouseMove(event, $element, $attrs) {
+
+        if ($attrs.type == 'vertical') {
+            // Handle vertical resizer
+            var x = event.pageX;
+
+            if ($attrs.maxWidth && x > $attrs.maxWidth) {
+                x = parseInt($attrs.maxWidth);
+            }
+            if ($attrs.minWidth && x < $attrs.minWidth) {
+                x = parseInt($attrs.minWidth);
+            }
+
+            $($attrs.left).css({
+                width: x + 'px'
+            });
+            $($attrs.right).css({
+                left: x + 'px'
+            });
+
+        } else {
+            // Handle horizontal resizer
+            var y = window.innerHeight - event.pageY;
+
+            $element.css({
+                bottom: y + 'px'
+            });
+
+            $($attrs.top).css({
+                bottom: (y + parseInt($attrs.height)) + 'px'
+            });
+            $($attrs.bottom).css({
+                height: y + 'px'
+            });
+        }
+
+    }
+
+</script>
