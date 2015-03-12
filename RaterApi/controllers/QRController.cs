@@ -16,7 +16,8 @@ namespace RaterApi
 {
     public class QRController : ApiController
     {
-        // GET api/<controller>
+        [AllowAnonymous]
+        [HttpPost]
         public HttpResponseMessage Get() {
 
             ErrorCorrectionLevel ecl = ErrorCorrectionLevel.H;

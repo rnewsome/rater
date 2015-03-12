@@ -16,9 +16,11 @@ namespace RaterApi
 
             // API routes
             routes.MapHttpRoute(
-                name: "QRAPI",
-                routeTemplate: "api/{controller}"
+                name: "Default",
+                routeTemplate: "{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
             );
+
         }
     }
 }
