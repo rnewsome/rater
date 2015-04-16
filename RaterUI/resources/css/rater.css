@@ -7327,6 +7327,7 @@ body {
   font-family: verdana, arial, sans-serif;
   color: #fff;
   font-size: 14px;
+  overflow: hidden;
 }
 .modal {
   color: #2d4474;
@@ -7334,11 +7335,34 @@ body {
 .container {
   height: 100%;
   background-color: #666666;
+  width: 100%;
 }
-.container .row {
-  padding: 5px;
+.container #lstEmployees {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
 }
-.container .row .box {
+.container #lstEmployees .box {
+  width: auto;
+  height: auto;
+  display: inline-block;
+}
+.container #lstEmployees .box-swipe {
+  position: absolute;
+  left: 0px;
+  display: none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+.container #lstEmployees .active-box {
+  display: block;
+}
+.container #lstEmployees .box,
+.container #lstEmployees .box-swipe {
+  top: 10px;
+  max-width: 500px;
+  margin: 0 auto;
   background: -webkit-gradient(linear, left top, left bottom, from(#808080), to(#999999));
   border: 2px #808080 solid;
   border-bottom-left-radius: 10px;
@@ -7347,31 +7371,152 @@ body {
   border-top-right-radius: 10px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-  display: inline-block;
-  padding: 5px;
-  margin: 2px;
 }
-.container .row .box a {
-  color: inherit;
+.container #lstEmployees .box div,
+.container #lstEmployees .box-swipe div {
+  margin: 0 auto;
+  text-align: center;
 }
-.container .row .box a:hover {
-  color: #4d70ba;
-}
-.container .row .box img {
-  width: auto;
-  height: auto;
+.container #lstEmployees .box img,
+.container #lstEmployees .box-swipe img {
+  margin: 0px auto;
+  max-width: 300px;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   border: 3px transparent solid;
-  height: 120px;
 }
-.container .row .box img:hover {
+.container #lstEmployees .box img:hover,
+.container #lstEmployees .box-swipe img:hover {
   border-color: #3b5999;
 }
-@media (max-width: 440px) {
-  .container .row .box img {
-    height: 75px;
-  }
+.container #frmEmployee {
+  display: none;
+}
+.container #frmLogin {
+  display: none;
+}
+.btn-facebook {
+  color: #f7f7f7;
+  background-color: #3468af;
+  border-color: #2e5c9b;
+}
+.btn-facebook:hover,
+.btn-facebook:focus,
+.btn-facebook:active,
+.btn-facebook.active,
+.open .dropdown-toggle.btn-facebook {
+  color: #f7f7f7;
+  background-color: #2b5590;
+  border-color: #20406c;
+}
+.btn-facebook:active,
+.btn-facebook.active,
+.open .dropdown-toggle.btn-facebook {
+  background-image: none;
+}
+.btn-facebook.disabled,
+.btn-facebook[disabled],
+fieldset[disabled] .btn-facebook,
+.btn-facebook.disabled:hover,
+.btn-facebook[disabled]:hover,
+fieldset[disabled] .btn-facebook:hover,
+.btn-facebook.disabled:focus,
+.btn-facebook[disabled]:focus,
+fieldset[disabled] .btn-facebook:focus,
+.btn-facebook.disabled:active,
+.btn-facebook[disabled]:active,
+fieldset[disabled] .btn-facebook:active,
+.btn-facebook.disabled.active,
+.btn-facebook[disabled].active,
+fieldset[disabled] .btn-facebook.active {
+  background-color: #3468af;
+  border-color: #2e5c9b;
+}
+.btn-facebook .badge {
+  color: #3468af;
+  background-color: #fff;
+}
+.btn-google {
+  color: #f7f7f7;
+  background-color: #e64c65;
+  border-color: #e33652;
+}
+.btn-google:hover,
+.btn-google:focus,
+.btn-google:active,
+.btn-google.active,
+.open .dropdown-toggle.btn-google {
+  color: #f7f7f7;
+  background-color: #e12846;
+  border-color: #c01b36;
+}
+.btn-google:active,
+.btn-google.active,
+.open .dropdown-toggle.btn-google {
+  background-image: none;
+}
+.btn-google.disabled,
+.btn-google[disabled],
+fieldset[disabled] .btn-google,
+.btn-google.disabled:hover,
+.btn-google[disabled]:hover,
+fieldset[disabled] .btn-google:hover,
+.btn-google.disabled:focus,
+.btn-google[disabled]:focus,
+fieldset[disabled] .btn-google:focus,
+.btn-google.disabled:active,
+.btn-google[disabled]:active,
+fieldset[disabled] .btn-google:active,
+.btn-google.disabled.active,
+.btn-google[disabled].active,
+fieldset[disabled] .btn-google.active {
+  background-color: #e64c65;
+  border-color: #e33652;
+}
+.btn-google .badge {
+  color: #e64c65;
+  background-color: #fff;
+}
+.btn-twitter {
+  color: #f7f7f7;
+  background-color: #4fc4f6;
+  border-color: #37bcf5;
+}
+.btn-twitter:hover,
+.btn-twitter:focus,
+.btn-twitter:active,
+.btn-twitter.active,
+.open .dropdown-toggle.btn-twitter {
+  color: #f7f7f7;
+  background-color: #28b7f4;
+  border-color: #0ca2e3;
+}
+.btn-twitter:active,
+.btn-twitter.active,
+.open .dropdown-toggle.btn-twitter {
+  background-image: none;
+}
+.btn-twitter.disabled,
+.btn-twitter[disabled],
+fieldset[disabled] .btn-twitter,
+.btn-twitter.disabled:hover,
+.btn-twitter[disabled]:hover,
+fieldset[disabled] .btn-twitter:hover,
+.btn-twitter.disabled:focus,
+.btn-twitter[disabled]:focus,
+fieldset[disabled] .btn-twitter:focus,
+.btn-twitter.disabled:active,
+.btn-twitter[disabled]:active,
+fieldset[disabled] .btn-twitter:active,
+.btn-twitter.disabled.active,
+.btn-twitter[disabled].active,
+fieldset[disabled] .btn-twitter.active {
+  background-color: #4fc4f6;
+  border-color: #37bcf5;
+}
+.btn-twitter .badge {
+  color: #4fc4f6;
+  background-color: #fff;
 }

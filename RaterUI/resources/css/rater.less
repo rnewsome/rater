@@ -10,6 +10,8 @@ html, body {
 	font-family:verdana,arial,sans-serif;
 	color:#fff;
 	font-size: @font-size-base;
+
+    overflow:hidden;
 }
 
 .modal {
@@ -19,14 +21,38 @@ html, body {
 .container {
 	height: 100%;
 	background-color: #666666;
+    width:100%;
 
-	.row {
-		padding:5px;
+	#lstEmployees {
+        display:block;
+        margin:0 auto;
+        padding:0;
 
-		.box {
+        .box {
+            width:auto;
+            height: auto;
+            display:inline-block;
+        }
+
+        .box-swipe {
+            position: absolute;
+            left:0px;
+            display:none;
+
+            width:auto;
+            height: auto;
+            padding:10px;
+        }
+        .active-box {
+            display:block;
+        }
+
+		.box, .box-swipe {
+            top:10px;
+            max-width:500px;
+            margin:0 auto;
 
 			background: -webkit-gradient(linear, left top, left bottom, from(lighten(#000, 50%)), to(lighten(#000, 60%)));
-
 			border: 2px lighten(#000, 50%) solid;
 			.border-top-radius(10px);
 			.border-bottom-radius(10px);
@@ -35,24 +61,15 @@ html, body {
 			
 			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
 			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+            
+            div {
+                margin:0 auto;
+                text-align:center;
+            }
 
-			display:inline-block;
-
-			padding: 5px;
-			margin: 2px;
-
-
-			a {
-				color: inherit;
-
-				&:hover {
-					color: @blue-light;
-				}
-			}
-
-			img {
-				width: auto;
-				height: auto;
+            img {
+                margin:0px auto;
+                max-width: 300px;
 
 				.border-top-radius(10px);
 				.border-bottom-radius(10px);
@@ -63,15 +80,45 @@ html, body {
 				&:hover {
 					border-color: @blue;	
 				}
-
-				height: 120px;
-			}
-
-			@media(max-width: 440px) {
-				img {
-					height: 75px;
-				}
 			}
 		}
 	}
+
+    #frmEmployee {
+        display:none;
+    }
+
+    #frmLogin {
+        display:none;
+    }
+}
+
+//Brands
+@btn-facebook-color:            #f7f7f7;
+@btn-facebook-bg:               #3468af;
+@btn-facebook-darker:           #1a4e95;
+@btn-facebook-border:           darken(@btn-facebook-bg, 5%);
+
+@btn-google-color:              #f7f7f7;
+@btn-google-bg:                 #e64c65;
+@btn-google-darker:             #cc324b;
+@btn-google-border:             darken(@btn-google-bg, 5%);
+
+@btn-twitter-color:             #f7f7f7;
+@btn-twitter-bg:                #4fc4f6;
+@btn-twitter-darker:            #35aadc;
+@btn-twitter-border:            darken(@btn-twitter-bg, 5%);
+
+
+// brand specific styles
+.btn-facebook {
+    .button-variant(@btn-facebook-color; @btn-facebook-bg; @btn-facebook-border);
+}
+
+.btn-google {
+    .button-variant(@btn-google-color; @btn-google-bg; @btn-google-border);
+}
+
+.btn-twitter {
+    .button-variant(@btn-twitter-color; @btn-twitter-bg; @btn-twitter-border);
 }

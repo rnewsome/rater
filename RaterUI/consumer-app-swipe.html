@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rater Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="resources/css/rater.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/rateit/rateit.css" />
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+
+    <div id="container" class="container">
+        <div class="row">
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="1">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="2">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="1">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="2">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="1">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#ratingModal" class="center-block" role="button" data-toggle="modal" data-person="2">
+                    <img class="img-responsive" src="resources/img/male.jpg" />
+                    <span class="center-block">James Monroe</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="vendor/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/3.0.2/bootstrap.min.js"></script>
+<script type="text/javascript" src="vendor/jqueryui/1.10.3/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="vendor/rateit/jquery.rateit.js"></script>
+<script type="text/javascript" src="vendor/json2/json2.js"></script>
+
+<script type="text/javascript" src="vendor//hammer//hammer.js"></script>
+<script type="text/javascript" src="vendor/hammer/jquery.hammer.js"></script>
+
+<script type="text/javascript">
+
+    Date.prototype.toDateInputValue = (function () {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0, 10);
+    });
+
+    function CalcResize(resize) {
+        var container = $(".row");
+
+        var divider = container.width() > 700 ? 4 : 2
+        divider = container.width() < 250 ? 1 : divider;
+
+        var padding = divider * 4;
+        var width = (container.width() / divider) - 15;
+
+        resize.width(width);
+        console.log(container.width(), width, divider, padding);
+    }
+
+    $(document).ready(function () {
+
+        var myElement = document.getElementById("container");
+        var mc = new Hammer(myElement);
+        mc.on("swiperight swipeleft", function (ev) {
+            //myElement.textContent = ev.type + " gesture detected.";
+            console.log(ev.type + " gesture detected.")
+        });
+        mc.get('swipe').set({ threshold: 2 });
+
+        CalcResize($(".img-responsive"))
+        $(window).resize(function () {
+            CalcResize($(".img-responsive"));
+        });
+
+    //    $(".rateit").bind('rated', function () {
+    //        var lbl = $(this).data("label");
+    //        $(lbl).text($(this).rateit('value'));
+    //    });
+
+    //    $("#ratingModal").on("show.bs.modal", function (event) {
+    //        var ctrl = $(event.relatedTarget);
+    //        var person = ctrl.data("person");
+
+    //        var modal = $(this);
+
+    //        console.log(person);
+    //        modal.find(".modal-header-text").text("James Monroe - ID: " + person);
+    //        $("#txtDate").val(new Date().toDateInputValue());
+
+    //    });
+
+    //    $("#submitReview").click(function (evt) {
+
+    //        var json = {
+    //            clientid: null,
+    //            employeeid: null,
+    //            qs: [],
+    //            date: null,
+    //            comments: null
+    //        };
+
+    //        $(".rateit").each(function (index) {
+    //            json.qs.push({ "id": $(this).data("questionid"), "value": $(this).rateit('value') });
+    //        });
+    //        json.date = $("#txtDate").val();
+    //        json.comments = $("#txtComments").val();
+    //        json.clientid = $("#hdnClientId").val();
+    //        json.employeeid = $("#hdnEmployeeId").val();
+
+    //        console.log(json);
+
+    //        $.ajax({
+    //            type: "POST",
+    //            contentType: "application/json",
+    //            url: "api/poll",
+    //            data: JSON.stringify(json),
+    //            beforeSend: function (xhr) {
+    //                console.log("before");
+    //            }
+    //        })
+    //        .done(function (data, textStatus, jqXHR) {
+    //            console.log("success");
+    //        })
+    //        .fail(function (jqXHR, textStatus, errorThrown) {
+    //            console.log("error", errorThrown);
+    //        })
+    //        .always(function () {
+    //            console.log("complete");
+    //            $('#ratingModal').modal('hide');
+    //        });
+    //    });
+
+    //    $("#cancelReview").click(function (evt) {
+    //        $('#ratingModal').modal('hide');
+    //    });
+
+    });
+
+</script>
